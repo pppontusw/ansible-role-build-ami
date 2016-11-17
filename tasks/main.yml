@@ -1,0 +1,11 @@
+- ec2_ami:
+    instance_id: "{{ec2_instance_id}}"
+    wait: yes
+    name: "{{app_name}}-{{ ansible_date_time.iso8601 | regex_replace('[^a-zA-Z0-9]', '-') }}"
+    tags:
+      Name: "{{app_name}}-{{ ansible_date_time.iso8601 | regex_replace('[^a-zA-Z0-9]', '-') }}"
+    region: "{{ami_region}}"
+  register: ami
+
+- debug:
+    msg: "{{ami}}"

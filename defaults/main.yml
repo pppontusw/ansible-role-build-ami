@@ -1,0 +1,3 @@
+app_name: Test
+ec2_instance_id: "{{ec2.instances[0].id}}"
+ami_region: "{{ec2_region}}"
